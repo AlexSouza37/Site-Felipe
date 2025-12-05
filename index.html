@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroApoio — Atendimento para Pessoas Neurodivergentes</title>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:Arial;color:#0f172a;background:#f8fafc}
+
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(135deg,#7c3aed,#06b6d4);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:700
+    }
+
+    nav{display:flex;gap:16px}
+    nav a{text-decoration:none;font-weight:600;color:black}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 400px;
+      gap:30px;
+      align-items:center;
+      margin-top:20px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .about{
+      margin-top:40px;
+      display:flex;
+      gap:30px;
+      align-items:center;
+    }
+
+    .contact{
+      margin-top:40px;
+    }
+
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:#555;
+    }
+
+    button{
+      padding:10px 16px;
+      border:none;
+      border-radius:8px;
+      background:#4a6fa5;
+      color:white;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    /* ACESSIBILIDADE */
+    body.acessivel{
+      background:#000;
+      color:#fff;
+      font-size:1.1rem;
+    }
+
+    body.acessivel .card,
+    body.acessivel header{
+      background:#111;
+      color:#fff;
+    }
+
+    @media(max-width:800px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .about{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">
+      <div class="mark">NA</div>
+      <div>
+        <strong>NeuroApoio</strong><br>
+        <small>Soluções que funcionam</small>
+      </div>
+    </div>
+
+    <button onclick="toggleAcessibilidade()">Modo acessível</button>
+
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Atendimento acolhedor e acessível para pessoas neurodivergentes</h1>
+        <p>Este site foi criado como trabalho de faculdade com foco em acessibilidade e inclusão.</p>
+
+        <div class="services" id="servicos">
+          <div class="card">
+            <h3>Autismo</h3>
+            <p>Respeito ao ritmo e sensibilidade sensorial.</p>
+          </div>
+          <div class="card">
+            <h3>TDAH</h3>
+            <p>Apoio na atenção, rotina e organização.</p>
+          </div>
+          <div class="card">
+            <h3>Dislexia</h3>
+            <p>Leitura adaptada e conteúdos acessíveis.</p>
+          </div>
+        </div>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" style="width:100%; border-radius:12px;">
+    </section>
+
+    <section class="about" id="sobre">
+      <div>
+        <h2>O que é Neurodiversidade?</h2>
+        <p>
+          Neurodiversidade é o conceito de que diferenças neurológicas
+          são variações naturais do cérebro humano, e não defeitos.
+        </p>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" style="width:100%; border-radius:12px;">
+    </section>
+
+    <section class="contact card" id="contato">
+      <h2>Contato (exemplo)</h2>
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Seu nome" required><br><br>
+        <input type="email" placeholder="Seu email" required><br><br>
+        <textarea rows="3"placeholder="Mensagem..."></textarea><br>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <p id="formStatus"></p>
+    </section>
+
+    <!-- ✅ AGORA O QUIZ ESTÁ NO FINAL -->
+    <section class="card" id="quiz" style="margin-top:40px">
+      <h2>Quiz Educativo</h2>
+      <p><strong>1. O que significa ser neurodivergente?</strong></p>
+      <label><input type="radio" name="q1"> Ter uma doença</label><br>
+      <label><input type="radio" name="q1"> Ter funcionamento cerebral diferente</label><br>
+      <label><input type="radio" name="q1"> Não conseguir aprender</label><br><br>
+
+      <p><strong>2. Qual é um exemplo de neurodivergência?</strong></p>
+      <label><input type="radio" name="q2"> Diabetes</label><br>
+      <label><input type="radio" name="q2"> Autismo</label><br><br>
+
+      <p><strong>3. Um ambiente inclusivo é aquele que:</strong></p>
+      <label><input type="radio" name="q3"> Exclui</label><br>
+      <label><input type="radio" name="q3"> Respeita diferenças</label><br><br>
+
+      <button>Enviar respostas</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 - NeuroApoio</p>
+    <small>Projeto acadêmico - Desenvolvimento de Aplicações para Internet</small>
+  </footer>
+
+</div>
+
+<script>
+function toggleAcessibilidade(){
+  document.body.classList.toggle("acessivel");
+}
+
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById("formStatus").textContent = "Mensagem enviada com sucesso!";
+}
+</script>
+</body>
+</html>
